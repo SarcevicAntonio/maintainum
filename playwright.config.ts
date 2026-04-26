@@ -1,6 +1,13 @@
 import { defineConfig } from '@playwright/test'
 
+const url = 'http://localhost:4173'
 export default defineConfig({
-	webServer: { command: 'npm run build && npm run preview', port: 4173 },
+	webServer: {
+		command: 'pnpm dev:pb & pnpm build && pnpm preview',
+		env: { ORIGIN: url },
+		url,
+		stderr: 'pipe',
+	},
+	use: { baseURL: url },
 	testMatch: '**/*.e2e.{ts,js}',
 })

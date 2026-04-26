@@ -4,6 +4,7 @@
 	import './styles.css'
 
 	let { children } = $props()
+	console.log('')
 </script>
 
 <svelte:head>
