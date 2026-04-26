@@ -1,6 +1,6 @@
-import { defineConfig } from 'vitest/config'
-import { playwright } from '@vitest/browser-playwright'
 import { sveltekit } from '@sveltejs/kit/vite'
+import { playwright } from '@vitest/browser-playwright'
+import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
 	plugins: [sveltekit()],
@@ -20,7 +20,6 @@ export default defineConfig({
 					exclude: ['src/lib/server/**'],
 				},
 			},
-
 			{
 				extends: './vite.config.ts',
 				test: {

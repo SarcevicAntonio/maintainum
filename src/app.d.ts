@@ -1,4 +1,4 @@
-import PocketBase from 'pocketbase'
+import PocketBase, { type RecordModel } from 'pocketbase'
 
 // See https://svelte.dev/docs/kit/types#app.d.ts
 // for information about these interfaces
@@ -7,6 +7,7 @@ declare global {
 		// interface Error {}
 		interface Locals {
 			pb: PocketBase
+			user: RecordModel | undefined
 		}
 		// interface PageData {}
 		// interface PageState {}

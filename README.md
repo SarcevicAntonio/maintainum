@@ -10,4 +10,3 @@ The app is build to be as **simple as possible**, so you can focus on getting st
 
 1. get v0.37.3 version of pocketbase for your os from https://pocketbase.io/docs/
 1. unzip and put `pocketbase` binary inside the repo root
- 
