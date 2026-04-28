@@ -5,8 +5,7 @@
 </script>
 
 <h1>Please Authenticate</h1>
-
-{JSON.stringify(form)}
+{#if form?.error}<p>{form.error}</p>{/if}
 
 <details name="auth" open>
 	<summary><h2>Login</h2></summary>
