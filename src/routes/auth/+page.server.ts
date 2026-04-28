@@ -3,7 +3,7 @@ import { ClientResponseError } from 'pocketbase'
 import type { Actions, PageServerLoad } from './$types'
 
 export const load: PageServerLoad = async ({ locals }) => {
-	if (locals.user) redirect(307, '/')
+	// if (locals.user) redirect(307, '/')
 }
 
 export const actions: Actions = {
@@ -17,7 +17,7 @@ export const actions: Actions = {
 		} catch (e) {
 			if (e instanceof ClientResponseError) fail(400, { e })
 		}
-		redirect(303, '/')
+		// redirect(303, '/')
 	},
 	register: async ({ locals, request }) => {
 		const data = await request.formData()
@@ -38,6 +38,6 @@ export const actions: Actions = {
 			console.log(e)
 			if (e instanceof ClientResponseError) fail(400, { e })
 		}
-		redirect(303, '/')
+		// redirect(303, '/')
 	},
 }
