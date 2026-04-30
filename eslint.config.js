@@ -40,5 +40,11 @@ export default defineConfig(
 		rules: {
 			'no-console': ['error', { allow: ['warn', 'error'] }],
 		},
+	},
+	{
+		files: ['./pb_migrations/**'],
+		rules: {
+			'@typescript-eslint/triple-slash-reference': 'off',
+		},
 	}
 )

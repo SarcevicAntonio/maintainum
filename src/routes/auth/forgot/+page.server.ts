@@ -1,10 +1,10 @@
 import { catch_pb_error, pb_error_to_fail } from '$lib/data/pb'
-import { fail, redirect } from '@sveltejs/kit'
+import { fail } from '@sveltejs/kit'
 import type { PageServerLoad } from '../$types'
 import type { Actions } from './$types'
 
-export const load: PageServerLoad = async ({ locals }) => {
-	if (locals.user) redirect(307, '/')
+export const load: PageServerLoad = async () => {
+	return { title: 'forgot password' }
 }
 
 export const actions: Actions = {

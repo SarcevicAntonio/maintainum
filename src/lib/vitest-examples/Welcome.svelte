@@ -1,5 +1,7 @@
-<script>
-	import { greet } from './greet'
+<script lang="ts">
+	export function greet(name: string): string {
+		return 'Hello, ' + name + '!'
+	}
 
 	let { host = 'SvelteKit', guest = 'Vitest' } = $props()
 </script>

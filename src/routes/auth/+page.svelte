@@ -5,13 +5,12 @@
 	let { form }: PageProps = $props()
 </script>
 
-<h1>Please Authenticate</h1>
 {#if form?.error}<p>{form.error}</p>{/if}
 
 <details name="auth" open>
-	<summary><h2>Login</h2></summary>
+	<summary><h2>login</h2></summary>
 	<form method="POST" action="?/login">
-		<label for="login-email">Email</label>
+		<label for="login-email">email</label>
 		<input
 			required
 			id="login-email"
@@ -20,7 +19,7 @@
 			autocomplete="email"
 		/>
 		<br />
-		<label for="login-password">Password</label>
+		<label for="login-password">password</label>
 		<input
 			required
 			id="login-password"
@@ -29,15 +28,15 @@
 			autocomplete="current-password"
 		/>
 		<br />
-		<button type="submit">Login</button>
+		<button type="submit">login</button>
 	</form>
 	<br />
-	<a href={resolve('/auth/forgot')}>Forgot your password?</a>
+	<a href={resolve('/auth/forgot')}>forgot password?</a>
 </details>
 <details name="auth">
-	<summary><h2>Register</h2></summary>
+	<summary><h2>register</h2></summary>
 	<form method="POST" action="?/register">
-		<label for="register-email">Email</label>
+		<label for="register-email">email</label>
 		<input
 			required
 			id="register-email"
@@ -46,7 +45,7 @@
 			autocomplete="email"
 		/>
 		<br />
-		<label for="register-password">Password</label>
+		<label for="register-password">password</label>
 		<input
 			required
 			id="register-password"
@@ -54,7 +53,7 @@
 			type="password"
 			autocomplete="new-password"
 		/>
-		<label for="register-password-repeat">Repeat Password</label>
+		<label for="register-password-repeat">repeat password</label>
 		<input
 			required
 			id="register-password-repeat"
@@ -63,7 +62,7 @@
 			autocomplete="off"
 		/>
 		<br />
-		<button type="submit">Register</button>
+		<button type="submit">register</button>
 	</form>
 </details>
 

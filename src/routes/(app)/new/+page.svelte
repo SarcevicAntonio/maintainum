@@ -8,10 +8,10 @@
 {#if form?.error}<p>{form.error}</p>{/if}
 
 <form method="POST">
-	<label for="email">email</label>
-	<input type="email" name="email" id="email" required />
+	<label for="label">Label</label>
+	<input type="label" name="label" id="label" required />
 	<br />
-	<button>request recovery email</button>
+	<button>create new list</button>
 </form>
 <br />
-<a href={resolve('/auth')}>login or register instead</a>
+<a href={resolve('/')}>see other lists</a>

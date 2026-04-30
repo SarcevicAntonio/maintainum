@@ -1,9 +1,11 @@
 import { fail, type ActionFailure } from '@sveltejs/kit'
 import { ClientResponseError } from 'pocketbase'
 
-export async function catch_pb_error(
-	pb_crud_promise: Promise<unknown> | (() => Promise<unknown>)
-): Promise<{ res?: unknown; error?: ClientResponseError }> {
+export async function catch_pb_error<T>(
+	pb_crud_promise: Promise<T> | (() => Promise<T>)
+): Promise<
+	{ res: T; error?: never } | { res?: never; error: ClientResponseError }
+> {
 	try {
 		const res =
 			typeof pb_crud_promise === 'function'

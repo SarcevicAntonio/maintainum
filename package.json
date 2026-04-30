@@ -10,7 +10,7 @@
 		"dev": "concurrently --names sk,pb --prefix-colors auto \"pnpm dev:sk\" \"pnpm dev:pb\"",
 		"dev:pb": "./pocketbase serve --dev",
 		"dev:sk": "vite dev",
-		"fix": "prettier --write . && eslint --fix . && knip --fix --allow-remove-files",
+		"fix": "prettier --write . && eslint --fix . && knip --fix",
 		"knip": "knip",
 		"lint": "prettier --check . && eslint . && knip",
 		"prepare": "playwright install && svelte-kit sync || echo ''",

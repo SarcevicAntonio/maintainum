@@ -1,5 +1,5 @@
 import { PUBLIC_POCKETBASE_URL } from '$env/static/public'
-import type { Handle } from '@sveltejs/kit'
+import { redirect, type Handle } from '@sveltejs/kit'
 import PocketBase from 'pocketbase'
 
 export const handle: Handle = async ({ event, resolve }) => {
@@ -14,6 +14,17 @@ export const handle: Handle = async ({ event, resolve }) => {
 	} catch {
 		event.locals.pb.authStore.clear()
 		event.locals.user = undefined
+	}
+
+	if (event.route.id?.includes('(app)') && !event.locals.user) {
+		redirect(303, '/auth') // (app) guard
+	}
+	if (
+		event.route.id?.includes('/auth') &&
+		!event.route.id?.includes('/auth/clear') &&
+		event.locals.user
+	) {
+		redirect(303, '/') // redirect signed in users to app
 	}
 
 	const response = await resolve(event)
