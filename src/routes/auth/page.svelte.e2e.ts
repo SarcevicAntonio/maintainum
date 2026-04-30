@@ -10,7 +10,6 @@ const password = 'asdfghjkl123'
 
 const delete_test_user = async () => {
 	try {
-		console.log('')
 		const response = await pb
 			.collection('users')
 			.authWithPassword(email, password)

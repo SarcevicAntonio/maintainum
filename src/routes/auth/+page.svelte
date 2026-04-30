@@ -30,6 +30,7 @@
 		<br />
 		<button type="submit">Login</button>
 	</form>
+	<a href="/auth/reset"></a>
 </details>
 <details name="auth">
 	<summary><h2>Register</h2></summary>
