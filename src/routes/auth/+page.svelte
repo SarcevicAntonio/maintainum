@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths'
 	import type { PageProps } from './$types'
 
 	let { form }: PageProps = $props()
@@ -30,7 +31,8 @@
 		<br />
 		<button type="submit">Login</button>
 	</form>
-	<a href="/auth/reset"></a>
+	<br />
+	<a href={resolve('/auth/forgot')}>Forgot your password?</a>
 </details>
 <details name="auth">
 	<summary><h2>Register</h2></summary>
