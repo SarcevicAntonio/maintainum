@@ -1,5 +1,5 @@
-import { fail, redirect, type ActionFailure } from '@sveltejs/kit'
-import { ClientResponseError } from 'pocketbase'
+import { catch_pb_error } from '$lib/data/pb'
+import { fail, redirect } from '@sveltejs/kit'
 import type { Actions, PageServerLoad } from './$types'
 
 export const load: PageServerLoad = async ({ locals }) => {
@@ -11,12 +11,14 @@ export const actions: Actions = {
 		const data = await request.formData()
 		const email = String(data.get('email'))
 		const password = String(data.get('password'))
-		if (!email || !password) return fail(400, { bad_form_data: true })
+		if (!email || !password) {
+			return fail(400, { error: 'Missing data: email and password required' })
+		}
 
-		const { fail } = await catch_pb_error(
+		const { error } = await catch_pb_error(
 			locals.pb.collection('users').authWithPassword(email, password)
 		)
-		if (fail) return fail
+		if (error) return fail(400, { error: error.message })
 
 		redirect(303, '/')
 	},
@@ -26,33 +28,20 @@ export const actions: Actions = {
 		const password = String(data.get('password'))
 		const password_repeat = String(data.get('password-repeat'))
 		const bad_form_data = !email || !password || !password_repeat
-		if (bad_form_data) return fail(400, { bad_form_data })
+		if (bad_form_data) {
+			return fail(400, {
+				error: 'Missing data: email, password and password_repeat required',
+			})
+		}
 
-		await locals.pb
-			.collection('users')
-			.create({ email, password, passwordConfirm: password_repeat })
-		await locals.pb.collection('users').authWithPassword(email, password)
+		const { error } = await catch_pb_error(async () => {
+			await locals.pb
+				.collection('users')
+				.create({ email, password, passwordConfirm: password_repeat })
+			await locals.pb.collection('users').authWithPassword(email, password)
+		})
+		if (error) return fail(400, { error: error.message })
 
-		// const ={fail} = catch_pb_error(e)
 		redirect(303, '/')
 	},
-}
-
-async function catch_pb_error(
-	pb_crud_promise: Promise<unknown> | (() => Promise<unknown>)
-): Promise<{ res?: unknown; fail?: ActionFailure<{ error: string }> }> {
-	try {
-		const res =
-			typeof pb_crud_promise === 'function'
-				? pb_crud_promise()
-				: pb_crud_promise
-		return { res: await res }
-	} catch (e) {
-		if (e instanceof ClientResponseError) {
-			return {
-				fail: fail(400, { error: e.message }),
-			}
-		}
-		throw e
-	}
 }
