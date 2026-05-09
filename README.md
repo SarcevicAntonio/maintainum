@@ -1,3 +1,5 @@
+this repo is being worked on from [codeberg.org/linkplay-space/maintainum](https://codeberg.org/linkplay-space/maintainum).
+
 # maintainum
 
 a foss-first doTogether successor that helps you keep track of stuff you have get done via **a List of recurring Tasks**.
