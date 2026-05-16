@@ -2,7 +2,8 @@ import { catch_pb_error, pb_error_to_fail } from '$lib/data/pb'
 import { fail, redirect } from '@sveltejs/kit'
 import type { Actions, PageServerLoad } from './$types'
 
-export const load: PageServerLoad = async () => {
+export const load: PageServerLoad = async ({ locals }) => {
+	if (locals.user) redirect(303, '/')
 	return { title: 'authenticate' }
 }
 

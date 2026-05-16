@@ -1,4 +1,4 @@
-import { fail, type ActionFailure } from '@sveltejs/kit'
+import { error, fail, type ActionFailure } from '@sveltejs/kit'
 import { ClientResponseError } from 'pocketbase'
 
 export async function catch_pb_error<T>(
@@ -16,6 +16,10 @@ export async function catch_pb_error<T>(
 		if (error instanceof ClientResponseError) return { error }
 		throw error
 	}
+}
+
+export function pb_to_sk_error(pb_error: ClientResponseError): never {
+	error(pb_error.status, { message: pb_error.message })
 }
 
 export function pb_error_to_fail(error: ClientResponseError): ActionFailure<{

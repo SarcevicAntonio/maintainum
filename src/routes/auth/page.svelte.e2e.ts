@@ -15,7 +15,7 @@ const delete_test_user = async () => {
 			.authWithPassword(email, password)
 		await pb.collection('users').delete(response.record.id)
 	} catch {
-		// nothing to do
+		// no-op
 	}
 }
 

@@ -9,7 +9,7 @@
 
 <form method="POST">
 	<label for="label">Label</label>
-	<input type="label" name="label" id="label" required />
+	<input type="text" name="label" id="label" required />
 	<br />
 	<button>create new list</button>
 </form>

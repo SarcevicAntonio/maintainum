@@ -5,9 +5,9 @@
 
 {#if data.lists.totalItems}
 	<ul>
-		{#each data.lists.items as item (item.id)}
+		{#each data.lists.items as list (list.id)}
 			<li>
-				<a href={resolve(`/(app)/[id]`, { id: item.id })}>{item.label}</a>
+				<a href={resolve(`/(app)/[list]`, { list: list.id })}>{list.label}</a>
 			</li>
 		{/each}
 	</ul>
