@@ -7,9 +7,11 @@
 
 {#if form?.error}<p>{form.error}</p>{/if}
 
+<h2>recover password</h2>
+
 <form method="POST">
 	<label for="email">email</label>
-	<input type="email" name="email" id="email" required />
-	<button>request recovery email</button>
+	<input id="email" type="email" name="email" required />
+	<button type="submit">request recovery email</button>
 </form>
 <a href={resolve('/auth')}>login or register instead</a>

@@ -19,11 +19,8 @@ export default defineConfig(
 	svelte.configs.prettier,
 	{
 		languageOptions: { globals: { ...globals.browser, ...globals.node } },
-		rules: {
-			// better covered via typescript
-			// see: https://typescript-eslint.io/troubleshooting/faqs/eslint/#i-get-errors-from-the-no-undef-rule-about-global-variables-not-being-defined-even-though-there-are-no-typescript-errors
-			'no-undef': 'off',
-		},
+		// better covered via typescript
+		rules: { 'no-undef': 'off' },
 	},
 	{
 		files: ['**/*.svelte', '**/*.svelte.ts', '**/*.svelte.js'],
@@ -36,15 +33,9 @@ export default defineConfig(
 			},
 		},
 	},
-	{
-		rules: {
-			'no-console': ['error', { allow: ['warn', 'error'] }],
-		},
-	},
+	{ rules: { 'no-console': ['error', { allow: ['warn', 'error'] }] } },
 	{
 		files: ['./pb_migrations/**'],
-		rules: {
-			'@typescript-eslint/triple-slash-reference': 'off',
-		},
+		rules: { '@typescript-eslint/triple-slash-reference': 'off' },
 	}
 )

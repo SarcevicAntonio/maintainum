@@ -2,7 +2,7 @@
 	import { resolve } from '$app/paths'
 	import { page } from '$app/state'
 	import favicon from '$lib/assets/favicon.svg'
-	import './styles.css'
+	import '@picocss/pico/css/pico.yellow.min.css'
 
 	let { children } = $props()
 
@@ -14,29 +14,19 @@
 	<title>{!title ? 'maintainum' : `${title} - maintainum`}</title>
 </svelte:head>
 
-<header>
+<header class="container">
 	<h1>{title || 'maintainum'}</h1>
 	{#if page.data.user}
 		<a href={resolve('/auth/clear')}>logout</a>
 	{/if}
 </header>
 
-<main>{@render children()}</main>
+<main class="container">{@render children()}</main>
 
 <style>
 	header {
 		display: flex;
-		align-items: center;
 		justify-content: space-between;
-	}
-
-	h1 {
-		margin: 0;
-	}
-
-	header,
-	main {
-		max-width: 70ch;
-		margin: auto;
+		align-items: center;
 	}
 </style>

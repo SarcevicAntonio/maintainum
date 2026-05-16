@@ -25,6 +25,6 @@
 	<p id="frequency-desc">
 		number of days until the task needs to be done again.
 	</p>
-	<button>create new task</button>
+	<button type="submit">create new task</button>
 </form>
 <a href={resolve('/(app)/[list]', { list: page.params.list! })}>back to list</a>

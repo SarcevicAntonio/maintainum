@@ -10,6 +10,6 @@
 <form method="POST">
 	<label for="label">Label</label>
 	<input type="text" name="label" id="label" required />
-	<button>create new list</button>
+	<button type="submit">create new list</button>
 </form>
 <a href={resolve('/')}>see other lists</a>

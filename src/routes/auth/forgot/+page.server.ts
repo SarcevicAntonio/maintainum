@@ -5,7 +5,6 @@ import type { Actions } from './$types'
 
 export const load: PageServerLoad = async ({ locals }) => {
 	if (locals.user) redirect(303, '/')
-	return { title: 'forgot password' }
 }
 
 export const actions: Actions = {

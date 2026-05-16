@@ -7,8 +7,10 @@
 
 {#if form?.error}<p>{form.error}</p>{/if}
 
+<h2>authenticate</h2>
+
 <details name="auth" open>
-	<summary><h2>login</h2></summary>
+	<summary><h3>login</h3></summary>
 	<form method="POST" action="?/login">
 		<label for="login-email">email</label>
 		<input
@@ -30,8 +32,9 @@
 	</form>
 	<a href={resolve('/auth/forgot')}>forgot password?</a>
 </details>
+<hr />
 <details name="auth">
-	<summary><h2>register</h2></summary>
+	<summary><h3>register</h3></summary>
 	<form method="POST" action="?/register">
 		<label for="register-email">email</label>
 		<input
@@ -62,7 +65,14 @@
 </details>
 
 <style>
-	h2 {
+	details summary {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	summary h3 {
+		margin: 0rem;
 		display: inline-block;
 	}
 </style>
