@@ -8,6 +8,15 @@ Each **Task** has a certain number of days it takes to recur. When you mark a Ta
 
 The app is build to be as **simple as possible**, so you can focus on getting stuff done instead of figuring out all the features. ~~It's also build to be used with multiple people. **Realtime data** means the Lists are always in sync and up to date, but you can of course also use the app by yourself.~~ (While rebuilding, we're focusing on a solid web-primitive (i.e. no-js dependant) base first, that will get realtime data enhancements later.) You can create a List for your shared home chores and one for your daily habits!
 
+## TODO
+
+- [ ] change password option
+- [ ] edit options for lists
+- [ ] edit options for tasks
+- [ ] mark task as done
+- [ ] share list option
+- [ ] import from doTogether option
+
 ## Development
 
 1. get v0.37.3 version of pocketbase for your os from https://pocketbase.io/docs/
