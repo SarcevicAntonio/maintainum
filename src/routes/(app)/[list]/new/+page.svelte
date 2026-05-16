@@ -9,13 +9,11 @@
 {#if form?.error}<p>{form.error}</p>{/if}
 
 <form method="POST">
-	<label for="label">Label</label>
+	<label for="label">label</label>
 	<input type="text" name="label" id="label" required />
-	<br />
-	<label for="description">Description</label>
+	<label for="description">description</label>
 	<textarea name="description" id="description"></textarea>
-	<br />
-	<label for="frequency">Frequency</label>
+	<label for="frequency">frequency</label>
 	<input
 		value="7"
 		type="number"
@@ -25,9 +23,8 @@
 		required
 	/>
 	<p id="frequency-desc">
-		Number of days until the task needs to be done again.
+		number of days until the task needs to be done again.
 	</p>
 	<button>create new task</button>
 </form>
-<br />
 <a href={resolve('/(app)/[list]', { list: page.params.list! })}>back to list</a>

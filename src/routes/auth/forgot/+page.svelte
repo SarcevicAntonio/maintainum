@@ -10,8 +10,6 @@
 <form method="POST">
 	<label for="email">email</label>
 	<input type="email" name="email" id="email" required />
-	<br />
 	<button>request recovery email</button>
 </form>
-<br />
 <a href={resolve('/auth')}>login or register instead</a>

@@ -21,7 +21,7 @@
 	{/if}
 </header>
 
-{@render children()}
+<main>{@render children()}</main>
 
 <style>
 	header {
@@ -29,7 +29,14 @@
 		align-items: center;
 		justify-content: space-between;
 	}
+
 	h1 {
 		margin: 0;
+	}
+
+	header,
+	main {
+		max-width: 70ch;
+		margin: auto;
 	}
 </style>

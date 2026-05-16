@@ -18,7 +18,6 @@
 			type="email"
 			autocomplete="email"
 		/>
-		<br />
 		<label for="login-password">password</label>
 		<input
 			required
@@ -27,10 +26,8 @@
 			type="password"
 			autocomplete="current-password"
 		/>
-		<br />
 		<button type="submit">login</button>
 	</form>
-	<br />
 	<a href={resolve('/auth/forgot')}>forgot password?</a>
 </details>
 <details name="auth">
@@ -44,7 +41,6 @@
 			type="email"
 			autocomplete="email"
 		/>
-		<br />
 		<label for="register-password">password</label>
 		<input
 			required
@@ -61,7 +57,6 @@
 			type="password"
 			autocomplete="off"
 		/>
-		<br />
 		<button type="submit">register</button>
 	</form>
 </details>
