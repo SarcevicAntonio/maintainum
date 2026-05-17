@@ -16,9 +16,7 @@
 
 <header class="container">
 	<h1>{title || 'maintainum'}</h1>
-	{#if page.data.user}
-		<a href={resolve('/auth/clear')}>logout</a>
-	{/if}
+	{#if page.data.user}<a href={resolve('/auth/clear')}>logout</a>{/if}
 </header>
 
 <main class="container">{@render children()}</main>
@@ -27,6 +25,12 @@
 	header {
 		display: flex;
 		justify-content: space-between;
-		align-items: center;
+		align-items: center;		font-weight: var(--pico-font-weight);
+
+	}
+
+	:global(a) {
+		display: block;
+		margin-bottom: var(--pico-typography-spacing-vertical);
 	}
 </style>
