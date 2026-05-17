@@ -13,3 +13,9 @@ export function calc_remaining(item: Task): number {
 	const difference = differenceInCalendarDays(new Date(), new Date(item.done))
 	return item.frequency - difference
 }
+
+export function day_string(date?: Date | string): string {
+	if (!date) date = new Date()
+	if (typeof date === 'string') date = new Date(date)
+	return date.toISOString().substring(0, 10)
+}
