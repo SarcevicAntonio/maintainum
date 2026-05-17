@@ -43,7 +43,7 @@
 		}
 	}
 
-	:global(a) {
+	:global(a:not(.raw)) {
 		display: block;
 		margin-bottom: var(--pico-typography-spacing-vertical);
 	}
