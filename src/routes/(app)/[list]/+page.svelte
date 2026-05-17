@@ -23,7 +23,7 @@
 <hr />
 
 <a
-	href={resolve('/(app)/[list]/new', { list: data.list.id })}
+	href={resolve('/(app)/[list]/new_task', { list: data.list.id })}
 	class="secondary"
 >
 	new task

@@ -19,4 +19,4 @@
 
 <hr />
 
-<a href={resolve('/new')} class="secondary">new list</a>
+<a href={resolve('/new_list')} class="secondary">new list</a>
