@@ -9,10 +9,9 @@ const config = {
 	},
 	kit: {
 		adapter: adapter(),
-		csrf: {
-			trustedOrigins: process.env.DISABLE_CSRF ? ['*'] : undefined,
-		},
+		csrf: { trustedOrigins: process.env.DISABLE_CSRF ? ['*'] : undefined },
 	},
+	vitePlugin: { inspector: { toggleKeyCombo: 'meta-shift' } },
 }
 
 export default config
