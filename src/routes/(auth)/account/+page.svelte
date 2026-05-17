@@ -20,4 +20,6 @@
 	<button type="submit">logout</button>
 </form>
 
+<hr />
+
 <a href={resolve('/')}>view lists</a>

@@ -27,6 +27,9 @@
 		justify-content: space-between;
 		align-items: center;
 		font-weight: var(--pico-font-weight);
+		a {
+			margin: 0;
+		}
 	}
 
 	:global(a) {

@@ -17,4 +17,6 @@
 	<p>no lists.</p>
 {/if}
 
+<hr />
+
 <a href={resolve('/new')}>new list</a>

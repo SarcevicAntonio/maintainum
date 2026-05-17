@@ -5,4 +5,6 @@
 
 <h2>{page.status}: {page.error?.message}</h2>
 
+<hr />
+
 <a href={resolve('/')}>view lists</a>

@@ -20,5 +20,8 @@
 	</ul>
 {/if}
 
-<a href={resolve('/(app)/[list]/new', { list: data.list.id })}> new task</a>
+<hr />
+
+<a href={resolve('/(app)/[list]/new', { list: data.list.id })}>new task</a>
+<a href={resolve('/(app)/[list]/edit', { list: data.list.id })}>edit list</a>
 <a href={resolve('/')}>view lists</a>

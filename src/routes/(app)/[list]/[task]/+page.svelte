@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { resolve } from '$app/paths'
-	import { page } from '$app/state'
 	import { calc_remaining } from '$lib/data/Task'
 	import type { PageData } from './$types'
 
@@ -26,4 +25,6 @@
 	{/if}
 </p>
 
-<a href={resolve('/(app)/[list]', { list: page.params.list! })}>back to list</a>
+<hr />
+
+<a href={resolve('/(app)/[list]', { list: data.task.list })}>back to list</a>

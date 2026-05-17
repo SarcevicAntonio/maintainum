@@ -21,4 +21,7 @@
 	/>
 	<button type="submit">create new task</button>
 </form>
+
+<hr />
+
 <a href={resolve('/(app)/[list]', { list: page.params.list! })}>back to list</a>

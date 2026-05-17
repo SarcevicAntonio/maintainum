@@ -12,4 +12,7 @@
 	<Field label="label" required />
 	<button type="submit">create new list</button>
 </form>
+
+<hr />
+
 <a href={resolve('/')}>view lists</a>

@@ -22,5 +22,7 @@
 	<button type="submit">request password reset</button>
 </form>
 
+<hr />
+
 <a href={resolve('/login')}>login</a>
 <a href={resolve('/register')}>register</a>

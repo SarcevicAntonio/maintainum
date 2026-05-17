@@ -18,5 +18,8 @@
 	/>
 	<button type="submit">login</button>
 </form>
+
+<hr />
+
 <a href={resolve('/recover')}>forgot password?</a>
 <a href={resolve('/register')}>register</a>

@@ -20,4 +20,6 @@
 	<button type="submit">register</button>
 </form>
 
+<hr />
+
 <a href={resolve('/login')}>login</a>
