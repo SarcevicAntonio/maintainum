@@ -19,7 +19,7 @@
 
 <form method="POST">
 	<Field label="email" required autocomplete="email" />
-	<button type="submit">request recovery email</button>
+	<button type="submit">request password reset</button>
 </form>
 
 <a href={resolve('/login')}>login</a>

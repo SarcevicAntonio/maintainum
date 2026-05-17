@@ -16,7 +16,7 @@
 
 <header class="container">
 	<h1>{title || 'maintainum'}</h1>
-	{#if page.data.user}<a href={resolve('/logout')}>logout</a>{/if}
+	{#if page.data.user}<a href={resolve('/account')}>account</a>{/if}
 </header>
 
 <main class="container">{@render children()}</main>

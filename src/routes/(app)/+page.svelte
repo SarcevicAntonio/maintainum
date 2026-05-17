@@ -3,6 +3,8 @@
 	const { data } = $props()
 </script>
 
+<h2>select list</h2>
+
 {#if data.lists.totalItems}
 	<ul>
 		{#each data.lists.items as list (list.id)}
@@ -15,4 +17,4 @@
 	<p>no lists.</p>
 {/if}
 
-<a href={resolve('/new')}>create new list</a>
+<a href={resolve('/new')}>new list</a>
