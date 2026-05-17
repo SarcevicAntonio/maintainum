@@ -4,7 +4,7 @@
 	import favicon from '$lib/assets/favicon.svg'
 	import '@picocss/pico/css/pico.yellow.min.css'
 
-	let { children, form } = $props()
+	let { children } = $props()
 
 	let title = $derived(page.data.title)
 </script>
@@ -15,24 +15,13 @@
 </svelte:head>
 
 <header class="container">
-	<nav>
-		<ul><li><strong>maintainum</strong></li></ul>
-		{#if page.data.user}
-			<a href={resolve('/auth/clear')}>logout</a>
-		{/if}
-	</nav>
+	<h1>{title || 'maintainum'}</h1>
+	{#if page.data.user}
+		<a href={resolve('/auth/clear')}>logout</a>
+	{/if}
 </header>
 
-<main class="container">
-	<h1>{title}</h1>
-	{#if form?.error}
-		<article>
-			<header>Form Error:</header>
-			<p>{form.error}</p>
-		</article>
-	{/if}
-	{@render children()}
-</main>
+<main class="container">{@render children()}</main>
 
 <style>
 	header {
