@@ -13,10 +13,13 @@ export const actions: Actions = {
 	async default({ locals, request, params }) {
 		if (!locals.user) redirect(303, '/login')
 		const data = await request.formData()
-		const label = String(data.get('label'))
-		const description = String(data.get('description'))
-		const frequency = Number(data.get('frequency'))
-		if (!label) return fail(400, { error: 'missing data: label is required' })
+		const label = String(data.get('label') || '').trim()
+		const description = String(data.get('description') || '').trim()
+		const frequency = Number(data.get('frequency') || 0)
+		if (!label || !frequency)
+			return fail(400, {
+				error: 'missing data: label and frequency are required',
+			})
 		const { error } = await catch_pb_error(
 			locals.pb.collection('tasks').create({
 				label,

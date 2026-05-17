@@ -1,5 +1,5 @@
-import { error, fail, type ActionFailure } from '@sveltejs/kit';
-import { ClientResponseError } from 'pocketbase';
+import { error, fail, type ActionFailure } from '@sveltejs/kit'
+import { ClientResponseError } from 'pocketbase'
 
 export async function catch_pb_error<T>(
 	pb_crud_promise: Promise<T> | (() => Promise<T>)

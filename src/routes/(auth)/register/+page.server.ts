@@ -14,11 +14,13 @@ export const actions: Actions = {
 		const passwordConfirm = String(data.get('confirm-password'))
 		const missing_data = !email || !password || !passwordConfirm
 		if (missing_data) {
-			const error = 'missing data: email, password and confirm-password are required'
+			const error =
+				'missing data: email, password and confirm-password are required'
 			return fail(400, { error })
 		}
 		if (password !== passwordConfirm) {
-			const error = 'invalid data: "password" and "confirm password" are not equivalent'
+			const error =
+				'invalid data: "password" and "confirm password" are not equivalent'
 			return fail(400, { error })
 		}
 
