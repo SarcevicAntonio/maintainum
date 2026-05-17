@@ -9,9 +9,9 @@ export const load: PageServerLoad = async ({ locals }) => {
 export const actions: Actions = {
 	async default({ locals, request }) {
 		const data = await request.formData()
-		const email = String(data.get('email'))
-		const password = String(data.get('password'))
-		const passwordConfirm = String(data.get('confirm-password'))
+		const email = String(data.get('email') || '').trim()
+		const password = String(data.get('password') || '').trim()
+		const passwordConfirm = String(data.get('confirm-password') || '').trim()
 		const missing_data = !email || !password || !passwordConfirm
 		if (missing_data) {
 			const error =

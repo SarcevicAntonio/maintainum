@@ -36,14 +36,14 @@
 <hr />
 
 <form method="POST" class="row">
-	TODO: add form action
 	<Field label="day done" type="date" bind:value={day_done}>
 		{#snippet output()}
 			{#if browser}
 				{#if next_return >= 0}
 					task wil return in {next_return} days.
 				{:else}
-					task wil be {#if next_return < 0}
+					task wil be
+					{#if next_return < 0}
 						{Math.abs(next_return)} day{Math.abs(next_return) !== 1 ? 's' : ''}
 					{/if}
 					due!

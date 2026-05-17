@@ -9,8 +9,8 @@ export const load: PageServerLoad = async ({ locals }) => {
 export const actions: Actions = {
 	async default({ locals, request }) {
 		const data = await request.formData()
-		const email = String(data.get('email'))
-		const password = String(data.get('password'))
+		const email = String(data.get('email') || '').trim()
+		const password = String(data.get('password') || '').trim()
 		if (!email || !password) {
 			return fail(400, { error: 'missing data: email and password required' })
 		}

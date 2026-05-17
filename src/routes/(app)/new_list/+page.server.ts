@@ -11,7 +11,7 @@ export const actions: Actions = {
 	async default({ locals, request }) {
 		if (!locals.user) redirect(303, '/login')
 		const data = await request.formData()
-		const label = String(data.get('label')) //
+		const label = String(data.get('label') || '').trim()
 		if (!label) return fail(400, { error: 'missing data: label is required' })
 		const { res, error } = await catch_pb_error(
 			locals.pb.collection('lists').create({ label, members: [locals.user.id] })
