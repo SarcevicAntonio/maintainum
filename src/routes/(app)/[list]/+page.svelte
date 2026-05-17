@@ -22,6 +22,16 @@
 
 <hr />
 
-<a href={resolve('/(app)/[list]/new', { list: data.list.id })}>new task</a>
-<a href={resolve('/(app)/[list]/edit', { list: data.list.id })}>edit list</a>
-<a href={resolve('/')}>view lists</a>
+<a
+	href={resolve('/(app)/[list]/new', { list: data.list.id })}
+	class="secondary"
+>
+	new task
+</a>
+<a
+	href={resolve('/(app)/[list]/edit', { list: data.list.id })}
+	class="secondary"
+>
+	edit list
+</a>
+<a href={resolve('/')} class="secondary"> view lists </a>

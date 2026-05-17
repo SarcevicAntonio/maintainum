@@ -16,7 +16,9 @@
 
 <header class="container">
 	<h1>{title || 'maintainum'}</h1>
-	{#if page.data.user}<a href={resolve('/account')}>account</a>{/if}
+	{#if page.data.user}
+		<a href={resolve('/account')} class="secondary">account</a>
+	{/if}
 </header>
 
 <main class="container">{@render children()}</main>
@@ -26,7 +28,16 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		font-weight: var(--pico-font-weight);
+		border-bottom: 0.25rem dashed var(--pico-primary-border);
+		gap: 1rem;
+
+		h1 {
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+		}
+
+		h1,
 		a {
 			margin: 0;
 		}
