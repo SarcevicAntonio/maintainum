@@ -1,5 +1,5 @@
-import { error, fail, type ActionFailure } from '@sveltejs/kit'
-import { ClientResponseError } from 'pocketbase'
+import { error, fail, type ActionFailure } from '@sveltejs/kit';
+import { ClientResponseError } from 'pocketbase';
 
 export async function catch_pb_error<T>(
 	pb_crud_promise: Promise<T> | (() => Promise<T>)
@@ -33,7 +33,7 @@ export function pb_to_sk_error(pb_error: ClientResponseError): never {
 export function pb_error_to_fail(error: ClientResponseError): ActionFailure<{
 	error: string
 }> {
-	return fail(error.status, { error: error.message })
+	return fail(error.status, { error: error.message.toLowerCase() })
 }
 
 const RELATIVE_URL_FETCH_ERROR = `maintainum: pocketbase tries to use global \

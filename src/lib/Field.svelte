@@ -8,7 +8,9 @@
 		label: string
 		description?: string
 	} & (
-		| ({ type?: 'text' | 'email' | 'number' } & HTMLInputAttributes)
+		| ({
+				type?: 'text' | 'email' | 'password' | 'number'
+		  } & HTMLInputAttributes)
 		| ({ type: 'textarea' } & HTMLTextareaAttributes)
 	)
 

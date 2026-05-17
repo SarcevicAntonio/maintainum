@@ -3,20 +3,23 @@ import { fail, redirect } from '@sveltejs/kit'
 import type { Actions, PageServerLoad } from './$types'
 
 export const load: PageServerLoad = async ({ locals }) => {
-	if (!locals.user) redirect(303, '/login')
-	return { title: 'new list' }
+	if (locals.user) redirect(303, '/')
 }
 
 export const actions: Actions = {
 	async default({ locals, request }) {
-		if (!locals.user) redirect(303, '/login')
 		const data = await request.formData()
-		const label = String(data.get('label')) //
-		if (!label) return fail(400, { error: 'missing data: label is required' })
-		const { res, error } = await catch_pb_error(
-			locals.pb.collection('lists').create({ label, members: [locals.user.id] })
+		const email = String(data.get('email'))
+		const password = String(data.get('password'))
+		if (!email || !password) {
+			return fail(400, { error: 'missing data: email and password required' })
+		}
+
+		const { error } = await catch_pb_error(
+			locals.pb.collection('users').authWithPassword(email, password)
 		)
 		if (error) return pb_error_to_fail(error)
-		redirect(303, `/${res.id}`)
+
+		redirect(303, '/')
 	},
 }

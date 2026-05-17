@@ -4,7 +4,7 @@ import { redirect, error as sk_error } from '@sveltejs/kit'
 import type { PageServerLoad } from './$types'
 
 export const load: PageServerLoad = async ({ locals, params }) => {
-	if (!locals.user) redirect(303, '/auth')
+	if (!locals.user) redirect(303, '/login')
 	const { res: task, error } = await catch_pb_error(
 		locals.pb.collection('tasks').getOne(params.task)
 	)

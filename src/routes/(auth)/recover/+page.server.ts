@@ -1,6 +1,6 @@
 import { catch_pb_error, pb_error_to_fail } from '$lib/data/pb'
 import { fail, redirect } from '@sveltejs/kit'
-import type { PageServerLoad } from '../$types'
+import type { PageServerLoad } from './$types'
 import type { Actions } from './$types'
 
 export const load: PageServerLoad = async ({ locals }) => {

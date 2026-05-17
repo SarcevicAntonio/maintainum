@@ -4,8 +4,8 @@ import { redirect } from '@sveltejs/kit'
 import type { PageServerLoad } from './$types'
 
 export const load: PageServerLoad = async ({ locals, params }) => {
-	if (!locals.user) redirect(303, '/auth')
-	if (!locals.user) redirect(303, '/auth')
+	if (!locals.user) redirect(303, '/login')
+	if (!locals.user) redirect(303, '/login')
 	const { res: list, error } = await catch_pb_error(
 		locals.pb.collection('lists').getOne(params.list, {
 			expand: 'tasks_via_list',

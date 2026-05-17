@@ -5,13 +5,13 @@ import { subDays } from 'date-fns'
 import type { Actions, PageServerLoad } from './$types'
 
 export const load: PageServerLoad = async ({ locals }) => {
-	if (!locals.user) redirect(303, '/auth')
+	if (!locals.user) redirect(303, '/login')
 	return { title: 'new task' }
 }
 
 export const actions: Actions = {
 	async default({ locals, request, params }) {
-		if (!locals.user) redirect(303, '/auth')
+		if (!locals.user) redirect(303, '/login')
 		const data = await request.formData()
 		const label = String(data.get('label'))
 		const description = String(data.get('description'))

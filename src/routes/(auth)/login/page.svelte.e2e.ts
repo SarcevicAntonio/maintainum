@@ -25,7 +25,7 @@ test.describe('auth', () => {
 
 	test('can sign up', async ({ page }) => {
 		await page.goto('/')
-		await page.waitForURL('**/auth')
+		await page.waitForURL('**/login')
 		await page.locator('summary', { hasText: 'Register' }).click()
 		await page.getByRole('textbox', { name: 'Email' }).fill(email)
 		await page

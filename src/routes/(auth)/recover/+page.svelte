@@ -22,4 +22,5 @@
 	<button type="submit">request recovery email</button>
 </form>
 
-<a href={resolve('/auth')}>login or register</a>
+<a href={resolve('/login')}>login</a>
+<a href={resolve('/register')}>register</a>
