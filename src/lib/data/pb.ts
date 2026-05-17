@@ -14,6 +14,14 @@ export async function catch_pb_error<T>(
 		return { res: await res }
 	} catch (error) {
 		if (error instanceof ClientResponseError) return { error }
+
+		const is_relative_url_fetch_error =
+			error instanceof Error &&
+			error.message.match(/Cannot use relative URL \((.+)\) with global fetch/)
+		if (is_relative_url_fetch_error) {
+			throw new Error(RELATIVE_URL_FETCH_ERROR, { cause: error })
+		}
+
 		throw error
 	}
 }
@@ -27,3 +35,8 @@ export function pb_error_to_fail(error: ClientResponseError): ActionFailure<{
 }> {
 	return fail(error.status, { error: error.message })
 }
+
+const RELATIVE_URL_FETCH_ERROR = `maintainum: pocketbase tries to use global \
+fetch with relative URL.
+Make sure you have copied the .env.example file, and your .env file contains a \
+valid "PUBLIC_POCKETBASE_URL".`
