@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { browser } from '$app/environment'
+	import { resolve } from '$app/paths'
 	import Field from '$lib/Field.svelte'
 
 	const { data } = $props()
@@ -7,16 +8,15 @@
 	const share_link = $derived(
 		`${data.origin}/join_list?list=${data.list.id}&key=${data.list.key}`
 	)
-	let copied_to_clipboard = $state(false)
 
 	export function share() {
-		copied_to_clipboard = false
-		if (navigator.share) {
-			navigator.share({ url: share_link })
-		} else {
-			navigator.clipboard.writeText(share_link)
-			copied_to_clipboard = true
-		}
+		if (!navigator.share) return
+		navigator.share({ url: share_link })
+	}
+	let copied_to_clipboard = $state(false)
+	export function copy() {
+		navigator.clipboard.writeText(share_link)
+		copied_to_clipboard = true
 	}
 </script>
 
@@ -25,22 +25,29 @@
 	it to them. they need to authenticate, and can then join this list.
 </p>
 
-<Field
-	label="share link"
-	readonly
-	value={share_link}
-	description="please only share this with people you trust, as they can edit and delete
-	tasks and items, just like you can."
-/>
+<p>
+	<strong>note: please only share this with people you trust</strong>, as they
+	can edit and delete tasks or the whole list, just like you can.
+</p>
 
-<div class="row">
-	{#if browser}
-		<button onclick={share}>share</button>
-	{/if}
-	{#if copied_to_clipboard}
-		<p>copied the link to your clipboard!</p>
-	{/if}
-</div>
+<Field label="share link" value={share_link} readonly />
+
+{#if browser}
+	<div class="row">
+		{#if !navigator.share}
+			<button onclick={copy}>copy</button>
+		{:else}
+			<button onclick={share}>share</button>
+		{/if}
+		{#if copied_to_clipboard}
+			<p>copied the link to your clipboard!</p>
+		{/if}
+	</div>
+{/if}
+
+<hr />
+
+<a href={resolve('/(app)/[list]', { list: data.list.id })}>back to list</a>
 
 <style>
 	.row {
