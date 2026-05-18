@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { resolve } from '$app/paths'
+	import { page } from '$app/state'
 	import Field from '$lib/Field.svelte'
 	let { form } = $props()
 </script>
@@ -22,4 +23,4 @@
 <hr />
 
 <a href={resolve('/recover')}>forgot password?</a>
-<a href={resolve('/register')}>register</a>
+<a href={resolve(`/register${page.url.search}`)}>register</a>

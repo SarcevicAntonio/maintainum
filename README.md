@@ -10,6 +10,7 @@ The app is build to be as **simple as possible**, so you can focus on getting st
 
 ## TODO
 
+- [ ] list pagination
 - [ ] share list option
 - [ ] import from doTogether option
 - [ ] delete account option

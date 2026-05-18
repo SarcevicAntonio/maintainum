@@ -5,7 +5,7 @@
 	const { data } = $props()
 
 	const share_link = $derived(
-		`${data.origin}/join_list?list${data.list.id}&key=${data.list.key}`
+		`${data.origin}/join_list?list=${data.list.id}&key=${data.list.key}`
 	)
 	let copied_to_clipboard = $state(false)
 
