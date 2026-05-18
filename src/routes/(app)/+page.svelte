@@ -5,9 +5,9 @@
 
 <h2>select list</h2>
 
-{#if data.lists.totalItems}
+{#if data.lists.length}
 	<ul>
-		{#each data.lists.items as list (list.id)}
+		{#each data.lists as list (list.id)}
 			<li>
 				<a href={resolve(`/(app)/[list]`, { list: list.id })}>{list.label}</a>
 			</li>
