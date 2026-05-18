@@ -13,10 +13,10 @@ export const actions: Actions = {
 		const data = await request.formData()
 		const label = String(data.get('label') || '').trim()
 		if (!label) return fail(400, { error: 'missing data: label is required' })
-		const { res, error } = await catch_pb_error(
+		const { res: list, error } = await catch_pb_error(
 			locals.pb.collection('lists').create({ label, members: [locals.user.id] })
 		)
 		if (error) return pb_error_to_fail(error)
-		redirect(303, `/${res.id}`)
+		redirect(303, `/${list.id}`)
 	},
 }

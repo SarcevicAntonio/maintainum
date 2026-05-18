@@ -56,4 +56,16 @@
 
 <hr />
 
-<a href={resolve('/(app)/[list]', { list: data.task.list })}>back to list</a>
+<a
+	href={resolve('/(app)/[list]/[task]/edit_task', {
+		list: data.task.list,
+		task: data.task.id,
+	})}
+	class="secondary"
+>
+	edit task
+</a>
+
+<a href={resolve('/(app)/[list]', { list: data.task.list })}>
+	back to list
+</a>

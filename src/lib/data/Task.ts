@@ -6,6 +6,7 @@ export interface Task extends RecordModel {
 	description: string
 	frequency?: number
 	done: string
+	list: string
 }
 
 export function calc_remaining(item: Task): number {

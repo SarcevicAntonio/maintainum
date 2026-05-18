@@ -22,7 +22,12 @@
 
 {#if form?.error}<p>{form.error}</p>{/if}
 
-<form method="POST">
+<form
+	method="POST"
+	onsubmit={(e) => {
+		if (!confirm('are you sure?')) e.preventDefault()
+	}}
+>
 	<button type="submit">
 		{#if multiple_members}
 			leave list

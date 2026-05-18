@@ -14,7 +14,10 @@
 
 <hr />
 
-<a href={resolve('/(app)/[list]/leave_delete', { list: data.list.id })}>
+<a
+	href={resolve('/(app)/[list]/leave_delete', { list: data.list.id })}
+	class="secondary"
+>
 	leave or delete list
 </a>
 <a href={resolve('/(app)/[list]', { list: data.list.id })}>back to list</a>

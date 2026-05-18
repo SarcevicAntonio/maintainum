@@ -1,7 +1,11 @@
 import type { List } from '$lib/data/List'
 import { catch_pb_error, pb_error_to_fail } from '$lib/data/pb'
 import { redirect } from '@sveltejs/kit'
-import type { Actions } from './$types'
+import type { Actions, PageServerLoad } from './$types'
+
+export const load: PageServerLoad = async ({ locals }) => {
+	if (!locals.user) redirect(303, '/login')
+}
 
 export const actions: Actions = {
 	async default({ locals, params }) {
