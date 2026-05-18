@@ -1,4 +1,6 @@
 <script>
+	import { resolve } from '$app/paths'
+
 	const { data, form } = $props()
 
 	const member_number = $derived(data.list.members.length)
@@ -29,3 +31,7 @@
 		{/if}
 	</button>
 </form>
+
+<hr />
+
+<a href={resolve('/(app)/[list]', { list: data.list.id })}>back to list</a>

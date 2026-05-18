@@ -10,9 +10,7 @@ The app is build to be as **simple as possible**, so you can focus on getting st
 
 ## TODO
 
-- [ ] leave / delete options for lists
 - [ ] edit options for tasks
-- [ ] mark task as done
 - [ ] share list option
 - [ ] import from doTogether option
 - [ ] delete account option
