@@ -45,7 +45,7 @@
 	new task
 </a>
 <a
-	href={resolve('/(app)/[list]/edit', { list: data.list.id })}
+	href={resolve('/(app)/[list]/edit_list', { list: data.list.id })}
 	class="secondary"
 >
 	edit list
