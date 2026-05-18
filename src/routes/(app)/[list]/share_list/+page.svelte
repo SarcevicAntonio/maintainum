@@ -9,12 +9,13 @@
 		`${data.origin}/join_list?list=${data.list.id}&key=${data.list.key}`
 	)
 
-	export function share() {
+	function share() {
 		if (!navigator.share) return
 		navigator.share({ url: share_link })
 	}
+
 	let copied_to_clipboard = $state(false)
-	export function copy() {
+	function copy() {
 		navigator.clipboard.writeText(share_link)
 		copied_to_clipboard = true
 	}
@@ -33,16 +34,16 @@
 <Field label="share link" value={share_link} readonly />
 
 {#if browser}
-	<div class="row">
-		{#if !navigator.share}
+	{#if !!navigator.share}
+		<button onclick={share}>share</button>
+	{:else}
+		<div class="row">
 			<button onclick={copy}>copy</button>
-		{:else}
-			<button onclick={share}>share</button>
-		{/if}
-		{#if copied_to_clipboard}
-			<p>copied the link to your clipboard!</p>
-		{/if}
-	</div>
+			{#if copied_to_clipboard}
+				<p>copied the link to your clipboard!</p>
+			{/if}
+		</div>
+	{/if}
 {/if}
 
 <hr />
