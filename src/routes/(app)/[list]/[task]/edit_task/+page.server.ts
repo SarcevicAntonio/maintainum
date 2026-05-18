@@ -1,10 +1,11 @@
 import { catch_pb_error, pb_error_to_fail } from '$lib/data/pb'
 import { fail, redirect } from '@sveltejs/kit'
-import type { PageServerLoad } from './$types'
-import type { Actions } from './$types'
+import type { Actions, PageServerLoad } from './$types'
 
-export const load: PageServerLoad = async ({ locals }) => {
+export const load: PageServerLoad = async ({ locals, parent }) => {
 	if (!locals.user) redirect(303, '/login')
+	const data = await parent()
+	return { title: `edit "${data.task.label}"` }
 }
 
 export const actions: Actions = {

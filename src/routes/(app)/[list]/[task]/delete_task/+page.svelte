@@ -4,8 +4,6 @@
 	const { data, form } = $props()
 </script>
 
-<h2>delete task</h2>
-
 <p>
 	you can delete the tasks by pressing the button below.<br />
 	<strong>note: this can not be undone.</strong>

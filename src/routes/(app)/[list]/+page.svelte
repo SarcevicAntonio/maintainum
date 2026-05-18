@@ -7,7 +7,7 @@
 </script>
 
 {#if !data.list.tasks?.length}
-	<p>no tasks yet!</p>
+	<p>no tasks yet...</p>
 {:else}
 	<ul>
 		{#each data.list.tasks.sort((a, b) => calc_remaining(a) - calc_remaining(b)) as task (task.id)}

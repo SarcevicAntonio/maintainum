@@ -7,8 +7,6 @@
 	const multiple_members = $derived(member_number > 1)
 </script>
 
-<h2>leave or delete list</h2>
-
 <p>
 	{#if multiple_members}
 		there are currently {member_number} members in the list.<br /> you can leave by
