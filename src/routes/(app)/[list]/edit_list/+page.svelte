@@ -15,6 +15,12 @@
 <hr />
 
 <a
+	href={resolve('/(app)/[list]/share_list', { list: data.list.id })}
+	class="secondary"
+>
+	share list
+</a>
+<a
 	href={resolve('/(app)/[list]/leave_delete', { list: data.list.id })}
 	class="secondary"
 >
