@@ -16,7 +16,7 @@
 		value={data.task.frequency || 7}
 		required
 	/>
-	<button type="submit">create new task</button>
+	<button type="submit">update task</button>
 </form>
 
 <hr />
