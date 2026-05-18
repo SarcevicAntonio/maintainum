@@ -1,23 +1,19 @@
-import type { List } from '$lib/data/List'
-import { catch_pb_error, pb_error_to_fail, pb_to_sk_error } from '$lib/data/pb'
+import { catch_pb_error, pb_error_to_fail } from '$lib/data/pb'
 import { fail, redirect } from '@sveltejs/kit'
 import type { Actions, PageServerLoad } from './$types'
 
-export const load: PageServerLoad = async ({ locals, params }) => {
+export const load: PageServerLoad = async ({ locals, parent }) => {
 	if (!locals.user) redirect(303, '/login')
-	const { res: list, error } = await catch_pb_error(
-		locals.pb.collection('lists').getOne(params.list)
-	)
-	if (error) pb_to_sk_error(error)
-	return { title: `edit "${list.label}"`, list: list as List }
+	const data = await parent()
+	return { title: `edit "${data.list.label}"` }
 }
 
 export const actions: Actions = {
 	async update_label({ locals, request, params }) {
-		const { res: list, error: fetch_error } = await catch_pb_error(
+		const { res: list, error: list_error } = await catch_pb_error(
 			locals.pb.collection('lists').getOne(params.list)
 		)
-		if (fetch_error) return pb_error_to_fail(fetch_error)
+		if (list_error) return pb_error_to_fail(list_error)
 
 		const data = await request.formData()
 		const new_label = String(data.get('new-label') || '').trim()

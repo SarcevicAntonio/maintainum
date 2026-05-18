@@ -1,9 +1,9 @@
 import type { List } from '$lib/data/List'
 import { catch_pb_error, pb_to_sk_error } from '$lib/data/pb'
 import { redirect } from '@sveltejs/kit'
-import type { PageServerLoad } from './$types'
+import type { LayoutServerLoad } from './$types'
 
-export const load: PageServerLoad = async ({ locals, params }) => {
+export const load: LayoutServerLoad = async ({ locals, params }) => {
 	if (!locals.user) redirect(303, '/login')
 	const { res: list, error } = await catch_pb_error(
 		locals.pb.collection('lists').getOne(params.list, {
