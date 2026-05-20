@@ -15,7 +15,7 @@ The app is build to be as **simple as possible**, so you can focus on getting st
 - [ ] delete account option
 - [ ] change email option
 
-## deevelopment
+## development
 
 1. setup pocketbase
    1. get v0.37.3 version of pocketbase for your os from https://pocketbase.io/docs/
