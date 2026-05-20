@@ -7,7 +7,7 @@ export const load: PageServerLoad = async ({ locals }) => {
 }
 
 export const actions: Actions = {
-	async default({ locals, request }) {
+	async default({ locals, request, url }) {
 		const data = await request.formData()
 		const email = String(data.get('email') || '').trim()
 		const password = String(data.get('password') || '').trim()
@@ -23,18 +23,22 @@ export const actions: Actions = {
 				'invalid data: "password" and "confirm password" are not equivalent'
 			return fail(400, { error })
 		}
-
 		const { error } = await catch_pb_error(async () => {
 			await locals.pb
 				.collection('users')
 				.create({ email, password, passwordConfirm })
 			await locals.pb.collection('users').authWithPassword(email, password)
 		})
-		if (!error) redirect(303, '/')
-		if (error.message === 'Failed to create record.') {
-			const error = 'failed to create user. is the email already in use?'
-			return fail(400, { error })
+		if (error) {
+			if (error.message === 'Failed to create record.') {
+				const error = 'failed to create user. is the email already in use?'
+				return fail(400, { error })
+			}
+			return pb_error_to_fail(error)
 		}
-		return pb_error_to_fail(error)
+		if (url.searchParams.get('list') && url.searchParams.get('key')) {
+			redirect(303, `/join_list${url.search}`)
+		}
+		redirect(303, '/')
 	},
 }

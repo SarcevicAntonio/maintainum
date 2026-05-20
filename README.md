@@ -16,11 +16,13 @@ The app is build to be as **simple as possible**, so you can focus on getting st
 - [ ] delete account option
 - [ ] change email option
 
-## Development
+## deevelopment
 
-1. get v0.37.3 version of pocketbase for your os from https://pocketbase.io/docs/
-1. unzip and put `pocketbase` binary inside the repo root
+1. setup pocketbase
+   1. get v0.37.3 version of pocketbase for your os from https://pocketbase.io/docs/
+   1. unzip and put `pocketbase` binary inside the repo root
 1. run `cp .env.example .env`
 1. run `pnpm dev` to start pocketbase and sveltekit
-1. either pocketbase opens it's admin dashboard to prompt superuser creation, or you can find a link in the logs on first launch. complete the setup
-1. setup a smtp server for sending emails (e.g. forgot password)
+1. init pocketbase
+   1. either pocketbase opens it's admin dashboard to prompt superuser creation, or you can find a link in the logs on first launch. complete the setup
+   1. setup a smtp server for sending emails (e.g. forgot password)
