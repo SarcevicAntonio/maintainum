@@ -2,18 +2,20 @@ this repo is being worked on from [codeberg.org/linkplay-space/maintainum](https
 
 # maintainum
 
-a foss-first doTogether successor that helps you keep track of stuff you have get done via **a List of recurring Tasks**.
+a foss-first recurring task list web app.
 
-Each **Task** has a certain number of days it takes to recur. When you mark a Task as done, it will recur after that set amount of days. **Lists** contain Tasks and can be shared with other people, so you can work on Tasks together. The List is ordered by the remaining / overdue days of each Task.
+create and share lists with tasks that recur after a set number of days after you mark them as done. lists are ordered by how long (till) a task is due (again).
 
-The app is build to be as **simple as possible**, so you can focus on getting stuff done instead of figuring out all the features. ~~It's also build to be used with multiple people. **Realtime data** means the Lists are always in sync and up to date, but you can of course also use the app by yourself.~~ (While rebuilding, we're focusing on a solid web-primitive (i.e. no-js dependant) base first, that will get realtime data enhancements later.) You can create a List for your shared home chores and one for your daily habits!
+~~**realtime updates** means the lists are always in sync and up to date for each user and device, granted that javascript works.~~ (while building, we're focusing on a solid web-primitive (i.e. no-js dependant) base first, that will get realtime data enhancements later.)
+
+you can create a list for your shared home chores and one for your daily habits!
 
 ## TODO
 
-- [ ] PWA install support
 - [ ] import from doTogether option
 - [ ] delete account option
 - [ ] change email option
+- [ ] real time updates
 
 ## development
 
