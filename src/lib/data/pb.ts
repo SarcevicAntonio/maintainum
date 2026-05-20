@@ -27,7 +27,7 @@ export async function catch_pb_error<T>(
 }
 
 export function pb_to_sk_error(pb_error: ClientResponseError): never {
-	error(pb_error.status, { message: pb_error.message })
+	error(pb_error.status, { message: pb_error.message.toLowerCase() })
 }
 
 export function pb_error_to_fail(error: ClientResponseError): ActionFailure<{
