@@ -14,7 +14,7 @@ you can create a list for your shared home chores and one for your daily habits!
 
 - [ ] import from doTogether option
 - [ ] delete account option
-- [ ] change email option
+- [ ] change email option [(pb)](https://pocketbase.io/docs/api-records/#email-change)
 - [ ] real time updates
 
 ## development
